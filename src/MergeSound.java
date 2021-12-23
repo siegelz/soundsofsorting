@@ -50,8 +50,6 @@ public class MergeSound {
     // stably merge a[lo .. mid] with a[mid+1 ..hi] using aux[lo .. hi]
     private static void merge(SoundArray a, SoundArray aux, int lo, int mid, int hi) {
         // precondition: a[lo .. mid] and a[mid+1 .. hi] are sorted subarrays
-        // assert isSorted(a, lo, mid);
-        // assert isSorted(a, mid + 1, hi);
 
         // copy to aux[]
         for (int k = lo; k <= hi; k++) {
@@ -68,7 +66,6 @@ public class MergeSound {
         }
 
         // postcondition: a[lo .. hi] is sorted
-        // assert isSorted(a, lo, hi);
     }
 
     // mergesort a[lo..hi] using auxiliary array aux[lo..hi]
@@ -88,7 +85,6 @@ public class MergeSound {
     public static void sort(SoundArray a) {
         SoundArray aux = new SoundArray(a.length(), 300, 2, 0);
         sort(a, aux, 0, a.length() - 1);
-        // assert isSorted(a);
     }
 
 
