@@ -15,11 +15,6 @@ public class SoundArray {
         this.pitchMult = pitchMult;
         this.pitchDuration = pitchDuration;
         this.audioRecord = new LinkedList<>();
-
-        //for (int i = 0; i < 20; i++) {
-        playSound(440, 0.1);
-        playSound(450, 0.1);
-        //}
     }
 
     public void setDuration(double duration) {
