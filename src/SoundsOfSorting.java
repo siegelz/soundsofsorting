@@ -13,10 +13,10 @@ public class SoundsOfSorting {
     }
 
     public static void main(String[] args) {
-        StdOut.println("Which sort would you like to hear? Answer insertion, selection, merge, or quick.");
+        StdOut.println("Which sort would you like to hear? Answer insertion, selection, merge, quick, or heap.");
         String answer = StdIn.readLine().toLowerCase();
-        SoundArray arrSmall = new SoundArray(15, 300, 2, 0.1);
-        SoundArray arrLarge = new SoundArray(50, 300, 2, 0.1);
+        SoundArray arrSmall = new SoundArray(15, 300, 1, 0.1);
+        SoundArray arrLarge = new SoundArray(50, 300, 1, 0.1);
 
         switch (answer) {
             case "insertion":
@@ -50,6 +50,14 @@ public class SoundsOfSorting {
                     StdOut.println(arrLarge.get(i));
                 StdAudio.save("quick.wav", arrLarge.audioRecord());
                 arrLarge.clearAudioRecord();
+                break;
+            case "heap":
+                randomizeArray(arrSmall, 100);
+                HeapSound.sort(arrSmall);
+                for (int i = 0; i < arrSmall.length(); i++)
+                    StdOut.println(arrSmall.get(i));
+                StdAudio.save("heap.wav", arrSmall.audioRecord());
+                arrSmall.clearAudioRecord();
                 break;
             default:
                 StdOut.println("Invalid choice.");

@@ -1,4 +1,3 @@
-import edu.princeton.cs.algs4.StdAudio;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -15,7 +14,7 @@ public class Quiz {
     public static void main(String[] args) {
         StdOut.println("Welcome to the sorting Quiz! Press enter to start, and I will play a sort.");
         StdIn.readLine();
-        int random = StdRandom.uniform(4);
+        int random = StdRandom.uniform(5);
 
         SoundArray arrSmall = new SoundArray(15, 300, 2, 0.1);
         SoundArray arrLarge = new SoundArray(50, 300, 2, 0.1);
@@ -24,39 +23,37 @@ public class Quiz {
                 randomizeArray(arrSmall, 100);
                 InsertionSound.sort(arrSmall);
                 for (int i = 0; i < arrSmall.length(); i++)
-                    StdOut.println(arrSmall.get(i));
-                StdAudio.save("insertion.wav", arrSmall.audioRecord());
-                arrSmall.clearAudioRecord();
+                    arrSmall.get(i);
                 break;
             case 1:
                 randomizeArray(arrSmall, 100);
                 SelectionSound.sort(arrSmall);
                 for (int i = 0; i < arrSmall.length(); i++)
-                    StdOut.println(arrSmall.get(i));
-                StdAudio.save("selection.wav", arrSmall.audioRecord());
-                arrSmall.clearAudioRecord();
+                    arrSmall.get(i);
                 break;
             case 2:
                 randomizeArray(arrLarge, 100);
                 MergeSound.sort(arrLarge);
                 for (int i = 0; i < arrLarge.length(); i++)
-                    StdOut.println(arrLarge.get(i));
-                StdAudio.save("merge.wav", arrLarge.audioRecord());
-                arrLarge.clearAudioRecord();
+                    arrLarge.get(i);
                 break;
             case 3:
                 randomizeArray(arrLarge, 100);
                 QuickSound.sort(arrLarge);
                 for (int i = 0; i < arrLarge.length(); i++)
-                    StdOut.println(arrLarge.get(i));
-                StdAudio.save("quick.wav", arrLarge.audioRecord());
-                arrLarge.clearAudioRecord();
+                    arrLarge.get(i);
+                break;
+            case 4:
+                randomizeArray(arrSmall, 100);
+                HeapSound.sort(arrSmall);
+                for (int i = 0; i < arrSmall.length(); i++)
+                    arrSmall.get(i);
                 break;
             default:
                 StdOut.println("Invalid choice.");
         }
 
-        StdOut.println("Which sorting algorithm was that? Answer insertion, selection, merge, or quick.");
+        StdOut.println("Which sorting algorithm was that? Answer insertion, selection, merge, quick, or heap.");
         String answer = StdIn.readLine();
         boolean repeat = false;
         do {
@@ -77,8 +74,12 @@ public class Quiz {
                     if (answer.equals("quick")) StdOut.println("Correct! Quick sort.");
                     else StdOut.println("Incorrect! It was quick sort.");
                     break;
+                case 4:
+                    if (answer.equals("heap")) StdOut.println("Correct! Heap sort.");
+                    else StdOut.println("Incorrect! It was heap sort.");
+                    break;
                 default:
-                    StdOut.println("Invalid response. You must enter insertion, selection, merge, or quick.");
+                    StdOut.println("Invalid response. You must enter insertion, selection, merge, quick, or heap.");
                     repeat = true;
             }
         } while (repeat);

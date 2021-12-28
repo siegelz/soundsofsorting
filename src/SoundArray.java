@@ -15,6 +15,11 @@ public class SoundArray {
         this.pitchMult = pitchMult;
         this.pitchDuration = pitchDuration;
         this.audioRecord = new LinkedList<>();
+
+        //for (int i = 0; i < 20; i++) {
+        playSound(440, 0.1);
+        playSound(450, 0.1);
+        //}
     }
 
     public void setDuration(double duration) {
@@ -39,16 +44,19 @@ public class SoundArray {
         arr[i] = value;
     }
 
-    // TODO: Add citation
+    /* @citation Adapted from: https://introcs.cs.princeton.edu/java/15inout/
+     * Accessed 12/27/21. */
     private void playSound(double hz, double duration) {
         int SAMPLING_RATE = 44100;
         int n = (int) (SAMPLING_RATE * duration);
-        double[] a = new double[n + 1];
         for (int i = 0; i <= n; i++) {
-            a[i] = Math.sin(2 * Math.PI * i * hz / SAMPLING_RATE);
-            audioRecord.add(a[i]);
+            double a = Math.sin(2 * Math.PI * i * hz / SAMPLING_RATE);
+            if ((n - i) < 0.99 * n) {
+                a *= (n - i) / (0.99 * n);
+            }
+            StdAudio.play(a);
+            audioRecord.add(a);
         }
-        StdAudio.play(a);
     }
 
     public double[] audioRecord() {
@@ -61,5 +69,9 @@ public class SoundArray {
 
     public void clearAudioRecord() {
         audioRecord = new LinkedList<>();
+    }
+
+    public static void main(String[] args) {
+        SoundArray s1 = new SoundArray(0, 0, 0, 0);
     }
 }

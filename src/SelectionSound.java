@@ -39,6 +39,8 @@
  * @author Kevin Wayne
  */
 public class SelectionSound {
+    /* @citation Adapted from: https://algs4.cs.princeton.edu/21elementary/Selection.java
+     * Accessed 12/27/21. */
 
     // This class should not be instantiated.
     private SelectionSound() {

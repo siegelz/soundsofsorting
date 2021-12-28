@@ -45,6 +45,8 @@
  * @author Kevin Wayne
  */
 public class InsertionSound {
+    /* @citation Adapted from: https://algs4.cs.princeton.edu/21elementary/Insertion.java
+     * Accessed 12/27/21. */
 
     // This class should not be instantiated.
     private InsertionSound() {

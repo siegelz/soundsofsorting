@@ -42,6 +42,8 @@
  * @author Kevin Wayne
  */
 public class MergeSound {
+    /* @citation Adapted from: https://algs4.cs.princeton.edu/22mergesort/Merge.java
+     * Accessed 12/27/21. */
 
     // This class should not be instantiated.
     private MergeSound() {

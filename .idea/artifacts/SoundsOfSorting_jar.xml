@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SoundsOfSorting:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SoundsOfSorting_jar</output-path>
+    <root id="archive" name="SoundsOfSorting.jar">
+      <element id="module-output" name="SoundsOfSorting" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../.lift/algs4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
